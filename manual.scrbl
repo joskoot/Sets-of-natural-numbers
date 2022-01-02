@@ -179,9 +179,4 @@ Interpret the leftmost bit as an infinite sequence of this bit.
 (code:line (natset->string (natset-complement set.3.to.5.included))
            (code:comment "Contains all numbers greater than 5."))]}
 
-
-
-1111111111
-
-
-
+@bold{The end}
