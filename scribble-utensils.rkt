@@ -60,9 +60,6 @@
 @(define-syntax-rule (Tabular ((e ...) ...) . rest) (tabular (list (list e ...) ...) . rest))
 @(define (roman . x) (element 'roman x))
 @(define (nbtt x) (nb (ttblack x)))
-@(define test-arg   (make-parameter "yet to be constructed"))
-@(define test-thunk (make-parameter "yet to be constructed"))
-@(define test-block (make-parameter "yet to be constructed"))
 
 @(define Void (let ((x
 @seclink["void" #:doc '(lib "scribblings/reference/reference.scrbl") (nb (tt "#<void>"))]))

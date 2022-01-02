@@ -12,7 +12,7 @@
 
 @title[#:version ""]{Finite sets of natural numbers@(lb)and their infinite complements.}
 @author{Jacob J. A. Koot}
-@(defmodule natset/natset #:packages ())
+@(defmodule Sets-of-natural-numbers/natset #:packages ())
 @;@(defmodule "natset.rkt" #:packages ())
 
 @section{Representation}
