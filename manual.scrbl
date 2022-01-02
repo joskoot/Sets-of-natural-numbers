@@ -12,8 +12,8 @@
 
 @title[#:version ""]{Finite sets of natural numbers@(lb)and their infinite complements.}
 @author{Jacob J. A. Koot}
-@(defmodule Sets-of-natural-numbers/natset #:packages ())
-@;@(defmodule "natset.rkt" #:packages ())
+@;@(defmodule Sets-of-natural-numbers/natset #:packages ())
+@(defmodule "natset.rkt" #:packages ())
 
 @section{Representation}
 
@@ -186,9 +186,7 @@ Interpret the leftmost bit as an infinite sequence of this bit.
 (code:line (natset->string (natset-complement set.3.to.5.included))
            (code:comment "Contains all numbers greater than 5."))]}
 
-
-
-1111111111
+@bold{The end}
 
 
 
