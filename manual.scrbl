@@ -12,8 +12,8 @@
 
 @title[#:version ""]{Finite sets of natural numbers@(lb)and their infinite complements.}
 @author{Jacob J. A. Koot}
-@(defmodule Sets-of-natural-numbers/natset #:packages ())
-@;@(defmodule "natset.rkt" #:packages ())
+@;@(defmodule Sets-of-natural-numbers/natset #:packages ())
+@(defmodule "natset.rkt" #:packages ())
 
 @section{Representation}
 
@@ -147,7 +147,8 @@ Union of a natset with its complement always returns the whole natset @bold{N}:
 Returns the natural number representing the @nbr[natset] from which
 all elements of the @nbr[to-be-removed] natsets are removed.
 Called without any @nbr[to-be-removed] natset, @nbr[natset] is returned
-without remoiving any element.
+without removing any element. Elements in a @nbr[to-be-removed] natset
+not present in the @nbr[natset] do no harm. They are ignored.
 
 @Interaction[
 (for/list ((k (in-range 5 11)) (l (in-naturals 7)) (m (in-range 2 20 3)))
@@ -155,7 +156,13 @@ without remoiving any element.
   (natset-subtract
    (make-natset '(0 20))
    (make-natset m)
-   (make-natset (list k l)))))]}
+   (make-natset (list k l)))))
+(code:comment #,(list "Elements present in "
+                      @nbr[to-be-removed]
+                      " but not present in "
+                      @nbr[natset]
+                      " are ignored:"))
+(natset->string (natset-subtract (make-natset 1 2 3) (make-natset 2 5 7)))]}
 
 @defproc[(natset-member? (natset natset?) (k natural?)) boolean?]{
 @nbr[#t] if @nbr[k] is an element of @nbr[natset], else @nbr[#f].
@@ -179,4 +186,9 @@ Interpret the leftmost bit as an infinite sequence of this bit.
 (code:line (natset->string (natset-complement set.3.to.5.included))
            (code:comment "Contains all numbers greater than 5."))]}
 
-@bold{The end}
+
+
+1111111111
+
+
+
