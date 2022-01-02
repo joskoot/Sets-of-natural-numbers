@@ -1,3 +1,3 @@
 #lang info
-(define name "test")
-(define scribblings '(("test.scrbl")))
+(define name "natset")
+(define scribblings '(("manual.scrbl")))
