@@ -1,6 +1,6 @@
 # Sets-of-natural-numbers
 
-(require natset/natset)
+(require Sets-of-natural-numbers/natset)
 
 Tools for finite sets of natural numbers and complements of these sets.\
 Represents sets by exact integers.\
