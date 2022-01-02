@@ -28,15 +28,13 @@
     (raise-argument-error 'make-natset
     "(or/c natural? (and/c (cons/c natural? natural?) (</c (car arg) (cdr arg))" arg)))))
 
-; ((cons/dc [from exact-nonnegative-integer?] [to (from) (>/c from)]) '(10 10))
-
 (define (make-single-natset i) (arithmetic-shift 1 i))
 
 (define natset-union bitwise-ior)
 
 (define natset-intersection bitwise-and)
 
-(define (natset-complement natset) (- (add1 natset)))
+(define natset-complement bitwise-not)
 
 (define (natset-subtract natset . natsets)
  (cond
@@ -64,11 +62,14 @@
       (for/list ((ch (in-string (~r (bitwise-not natset) #:base 2))))
        (case ch ((#\0) #\1) ((#\1) #\0)))))))))
 
-#;(for/list ((k (in-range 0 10)))
-    (define natset (make-natset k))
-    (define compl (natset-complement natset))
-    (list (natset->string natset #:min-width 20) (natset->string compl #:min-width 20)
-          (natset->string natset) (natset->string compl)))
+(define (natset->list natset)
+ (define (convert n m)
+  (cond
+   ((zero? n) '())
+   ((odd? n) (cons m (convert (quotient n 2) (add1 m))))
+   (else (convert (quotient n 2) (add1 m)))))
+ (cond
+  ((< natset 0) (list 'complement (convert (bitwise-not natset) 0)))
+  ((zero? natset) '())
+  (else (convert natset 0))))
 
-#;(for ((k (in-range 0 10))) (printf "~s ~s ~a ~a~n" k (- (add1 k)) (natset->string k)
-                                     (natset->string (- (add1 k)))))

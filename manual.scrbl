@@ -114,7 +114,6 @@ Returns the natset representing the intersection of the arguments.
 Without arguments the @nbr[empty-natset] (= @nbr[0]) is returned.
 In fact @nbr[natset->union] is the same as @nbr[bitwise-and].
 
-
 @Interaction[
 (define a (make-natset '(5 10)))
 (define b (make-natset '(8 15)))
@@ -126,7 +125,7 @@ In fact @nbr[natset->union] is the same as @nbr[bitwise-and].
 @defproc[(natset-complement (natset natset?)) natset?]{
 Returns the natural number representing the complement of @nbr[natset],
 id est, the set of all natural numbers, but without those in @nbr[natset].
-(Same as @nbr[(- (add1 natset))])
+(Same as @nbr[bitwise-not])
 
 @Interaction[
 (define a (make-natset '(5 10)))
@@ -141,7 +140,6 @@ Union of a natset with its complement always returns the whole natset @bold{N}:
 (for/and ((k (in-range 1 10)))
  (define natset (make-natset (list 0 k)))
  (= (natset-union natset (natset-complement natset)) -1))]}
-
 
 @defproc[(natset-subtract (natset natset?) (to-be-removed natset?) ...) natset?]{
 Returns the natural number representing the @nbr[natset] from which
@@ -185,6 +183,12 @@ Interpret the leftmost bit as an infinite sequence of this bit.
 (code:line (natset->string set.3.to.5.included) (code:comment "Contains no elements greater than 5."))
 (code:line (natset->string (natset-complement set.3.to.5.included))
            (code:comment "Contains all numbers greater than 5."))]}
+
+@defproc[(natset->list (natset natset?)) list?]{
+If @nbr[natset] is zero or positive, a sorted list of all members of the @nbr[natset] is returned.
+If @nbr[natset] is negative, it contains an infinite number of elements.
+In this case procedure @nbr[natset->list] returns @nbr[(complement (n ...))],
+where @nbr[(n ...)] is a sorted list of all elements not in the @nbr[natset].}
 
 @bold{The end}
 
