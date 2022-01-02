@@ -188,7 +188,12 @@ Interpret the leftmost bit as an infinite sequence of this bit.
 If @nbr[natset] is zero or positive, a sorted list of all members of the @nbr[natset] is returned.
 If @nbr[natset] is negative, it contains an infinite number of elements.
 In this case procedure @nbr[natset->list] returns @nbr[(complement (n ...))],
-where @nbr[(n ...)] is a sorted list of all elements not in the @nbr[natset].}
+where @nbr[(n ...)] is a sorted list of all elements not in the @nbr[natset].
+
+@Interaction[
+(define natset (make-natset 1 3 5 7 9))
+(natset->list natset)
+(natset->list (natset-complement natset))]}
 
 @bold{The end}
 
