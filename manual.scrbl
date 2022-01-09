@@ -165,7 +165,7 @@ not present in the @nbr[natset] do no harm. They are ignored.
 @defproc[(natset-member? (natset natset?) (k natural?)) boolean?]{
 @nbr[#t] if @nbr[k] is an element of @nbr[natset], else @nbr[#f].
 
-@defproc[(nat-subset? (ns1 natset?) (ns2 natsepR)) boolean?]{
+@defproc[(nat-subset? (ns1 natset?) (ns2 natset?)) boolean?]{
 @nbr[#t] if @nbr[ns1] is a subset of @nbr[ns2].}
 
 @Interaction[
