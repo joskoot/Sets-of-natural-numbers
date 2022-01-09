@@ -43,7 +43,7 @@
 
 (define (natset-member? natset i) (not (zero? (bitwise-and natset (make-single-natset i)))))
 
-(define (nat-subset? a b) (= (bitwise-and a b) b))
+(define (nat-subset? a b) (= (bitwise-and a b) a))
 
 (define (natset->string natset #:min-width (min-width 0))
  (define (align ch str)
