@@ -139,7 +139,7 @@ Union of a natset with its complement always returns the whole natset @bold{N}:
 @Interaction[
 (for/and ((k (in-range 1 10)))
  (define natset (make-natset (list 0 k)))
- (= (natset-union natset (natset-complement natset)) -1))]}
+ (= (natset-union natset (natset-complement natset)) total-natset))]}
 
 @defproc[(natset-subtract (natset natset?) (to-be-removed natset?) ...) natset?]{
 Returns the natural number representing the @nbr[natset] from which
