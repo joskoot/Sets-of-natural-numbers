@@ -28,6 +28,8 @@
     (raise-argument-error 'make-natset
     "(or/c natural? (and/c (cons/c natural? natural?) (</c (car arg) (cdr arg))" arg)))))
 
+(define (natset-add natset . nat-list) (natset-union natset (apply make-natset nat-list)))
+
 (define (make-single-natset i) (arithmetic-shift 1 i))
 
 (define natset-union bitwise-ior)

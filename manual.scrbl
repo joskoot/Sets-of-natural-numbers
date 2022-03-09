@@ -96,6 +96,14 @@ Overlapping arguments do no harm. Eamples:
  (make-natset '(0 20))
  (sub1 (expt 2 20)))]}
 
+@defproc[
+(natset-add
+ (natset natset?)
+ (arg (or/c natural?
+           (and/c (list/c natural? natural?) (< (car arg) (cadr arg))))) ...)
+natset?]{
+Same as @nbr[(natset-union natset (make-natset arg ...))].}
+
 @defproc[(natset-union (natset natset?) ...) natset?]{
 Returns the natset representing the union of its arguments.
 Without arguments the @nbr[empty-natset] (= @nbr[0]) is returned.
